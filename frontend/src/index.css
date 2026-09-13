@@ -1,0 +1,158 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════
+   V.A.U.L.T. — shadcn/ui-style CSS Variable Theming
+   Each theme defines accent + surface colors as RGB channels
+   so Tailwind opacity modifiers (bg-accent/10) work seamlessly.
+   ═══════════════════════════════════════════════ */
+
+@layer base {
+
+  /* ── Shadcn Black (Default — Professional True Black) ── */
+  :root,
+  [data-theme="shadcn-black"] {
+    --accent: 255 255 255;
+    /* White accent for professional look */
+    --accent-hover: 228 228 231;
+    /* Zinc-200 */
+    --surface-deep: 9 9 11;
+    /* Zinc-950 (Almost Black) */
+    --surface-card: 24 24 27;
+    /* Zinc-900 */
+    --surface-raised: 39 39 42;
+    /* Zinc-800 */
+    --on-surface: 250 250 250;
+    /* Zinc-50 */
+    --on-surface-muted: 161 161 170;
+    /* Zinc-400 */
+    --text-muted: 113 113 122;
+    /* Zinc-500 */
+    --border: 39 39 42;
+    /* Zinc-800 */
+    --border-opacity: 1;
+    --ring: 255 255 255;
+  }
+
+  /* ── Obsidian (Industrial Teal) ── */
+  [data-theme="obsidian"] {
+    --accent: 0 201 167;
+    --accent-hover: 56 222 187;
+    --surface-deep: 15 15 26;
+    --surface-card: 18 18 29;
+    --surface-raised: 31 30 42;
+    --on-surface: 227 224 241;
+    --on-surface-muted: 186 202 195;
+    --text-muted: 148 163 184;
+    --border: 255 255 255;
+    --border-opacity: 0.1;
+    --ring: 0 201 167;
+  }
+
+  /* ── Sapphire (Deep Blue) ── */
+  [data-theme="sapphire"] {
+    --accent: 59 130 246;
+    --accent-hover: 96 165 250;
+    --surface-deep: 8 12 24;
+    --surface-card: 13 19 35;
+    --surface-raised: 22 31 52;
+    --on-surface: 226 232 240;
+    --on-surface-muted: 148 163 184;
+    --text-muted: 100 116 139;
+    --border: 148 163 184;
+    --border-opacity: 0.12;
+    --ring: 59 130 246;
+  }
+
+  /* ── Emerald (Matrix Green) ── */
+  [data-theme="emerald"] {
+    --accent: 16 185 129;
+    --accent-hover: 52 211 153;
+    --surface-deep: 8 18 14;
+    --surface-card: 12 24 20;
+    --surface-raised: 20 38 32;
+    --on-surface: 209 250 229;
+    --on-surface-muted: 167 243 208;
+    --text-muted: 110 161 140;
+    --border: 110 231 183;
+    --border-opacity: 0.1;
+    --ring: 16 185 129;
+  }
+
+  /* ── Crimson (Dark Rose) ── */
+  [data-theme="crimson"] {
+    --accent: 244 63 94;
+    --accent-hover: 251 113 133;
+    --surface-deep: 20 10 14;
+    --surface-card: 28 14 20;
+    --surface-raised: 42 22 30;
+    --on-surface: 255 228 230;
+    --on-surface-muted: 253 164 175;
+    --text-muted: 158 120 130;
+    --border: 244 63 94;
+    --border-opacity: 0.12;
+    --ring: 244 63 94;
+  }
+
+  /* ── Amber (Gold Terminal) ── */
+  [data-theme="amber"] {
+    --accent: 245 158 11;
+    --accent-hover: 252 191 73;
+    --surface-deep: 20 16 8;
+    --surface-card: 28 22 12;
+    --surface-raised: 42 35 20;
+    --on-surface: 254 243 199;
+    --on-surface-muted: 253 224 71;
+    --text-muted: 161 148 107;
+    --border: 245 158 11;
+    --border-opacity: 0.12;
+    --ring: 245 158 11;
+  }
+
+  /* ── Violet (Cyberpunk Purple) ── */
+  [data-theme="violet"] {
+    --accent: 139 92 246;
+    --accent-hover: 167 139 250;
+    --surface-deep: 14 10 24;
+    --surface-card: 20 14 35;
+    --surface-raised: 32 24 52;
+    --on-surface: 237 233 254;
+    --on-surface-muted: 196 181 253;
+    --text-muted: 130 115 170;
+    --border: 139 92 246;
+    --border-opacity: 0.12;
+    --ring: 139 92 246;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ── Utility for legacy border-muted ── */
+@layer utilities {
+  .border-muted {
+    border-color: rgb(var(--border) / var(--border-opacity));
+  }
+}
+
+/* ── Smooth theme transitions ── */
+* {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0ms;
+}
+
+[data-theme-transitioning] * {
+  transition-duration: 300ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}

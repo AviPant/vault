@@ -1,0 +1,35 @@
+# Air-gapped Deployment Compose Spec for V.A.U.L.T.
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vault-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_API_URL=http://host.docker.internal:11434
+      - DEFAULT_GENERAL_MODEL=llama3.1:8b
+      - DEFAULT_CODER_MODEL=qwen2.5-coder:7b
+      - DEFAULT_VISION_MODEL=qwen2.5vl:3b
+      - EMBEDDING_MODEL=nomic-embed-text:latest
+    volumes:
+      - ./backend/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vault-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
