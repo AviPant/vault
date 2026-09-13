@@ -19,6 +19,7 @@ python setup.py start    # 6. Launch both Backend & Frontend simultaneously
 <p align="center">
   <img src="https://img.shields.io/badge/Security-100%25%20Air--Gapped-00e5a3?style=for-the-badge" alt="Air-Gapped" />
   <img src="https://img.shields.io/badge/Hardware-6GB%20VRAM%20Optimized-0070f3?style=for-the-badge" alt="6GB VRAM" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
   <img src="https://img.shields.io/badge/Backend-FastAPI%20%7C%20Python%203.11-yellow?style=for-the-badge" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Frontend-React%2018%20%7C%20Vite%20%7C%20Tailwind-61dafb?style=for-the-badge" alt="React" />
   <img src="https://img.shields.io/badge/LLM%20Engine-Ollama%20Local-ff6b6b?style=for-the-badge" alt="Ollama" />
@@ -39,6 +40,7 @@ python setup.py start    # 6. Launch both Backend & Frontend simultaneously
 9. [API Reference](#-api-reference)
 10. [Directory Structure](#-directory-structure)
 11. [Troubleshooting & FAQs](#-troubleshooting--faqs)
+12. [License](#-license)
 
 ---
 
@@ -390,6 +392,12 @@ V.A.U.L.T/
 
 ### 4. Vite Frontend Port Conflicts
 - By default, Vite runs on port `5173`. If occupied, Vite will use `5174` or `5175`. The backend CORS policy is pre-configured to accept requests from ports `5173` through `5175`.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for complete details.
 
 ---
 
